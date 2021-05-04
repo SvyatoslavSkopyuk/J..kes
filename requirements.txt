@@ -1,0 +1,6 @@
+beautifulsoup4==4.9.3
+request-limiter==0.1.1
+requests==2.22.0
+requests-guard==0.1.0
+requests-toolbelt==0.9.1
+requests-unixsocket==0.2.0

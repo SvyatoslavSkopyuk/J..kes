@@ -1,4 +1,6 @@
 import re
+
+
 def create_formated_list(unformated_list, flag):
     for item in unformated_list:
         list_of_cats = [i for i in item.get_text().split('\n') if i != '']

@@ -1,4 +1,4 @@
-beautifulsoup4==4.9.3
+beautifulsoup4
 request-limiter==0.1.1
 requests==2.22.0
 requests-guard==0.1.0

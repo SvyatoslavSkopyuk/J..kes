@@ -28,7 +28,7 @@ def get_text_messages(message):
     print(message.text)
     print(type(str(message.text)))
     try:
-        num = int(str(message.text))
+        num = int(str(message.text).strip())
         with shelve.open('categories.db') as db:
             list_keys = list(db.keys())
             joke = choice(db[list_keys[num % len(list_keys)]])

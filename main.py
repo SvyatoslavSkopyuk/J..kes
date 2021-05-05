@@ -2,9 +2,9 @@ import telebot
 import shelve
 
 from random import choice
-from parser import give_joke
+from parser import give_joke, parse
 bot = telebot.TeleBot('1738958667:AAGvgXWxuzHzRPQWb8lxkf33NOtmfU0cOqA')
-
+parse()
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -13,7 +13,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['categories'])
 def send_categories(message):
-    with shelve.open('categories') as db:
+    with shelve.open('categories.db') as db:
         list_keys = list(db.keys())
         text = ''
         for i in range(len(list_keys)):
@@ -28,7 +28,7 @@ def get_text_messages(message):
 
     try:
         num = int(str(message.text).strip())
-        with shelve.open('categories') as db:
+        with shelve.open('categories.db') as db:
             list_keys = list(db.keys())
             joke = choice(db[list_keys[num % len(list_keys)]])
             text = give_joke(joke)

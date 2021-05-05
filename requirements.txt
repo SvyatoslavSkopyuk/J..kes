@@ -5,3 +5,5 @@ requests-guard==0.1.0
 requests-toolbelt==0.9.1
 requests-unixsocket==0.2.0
 pytelegrambotapi
+shelve
+requests

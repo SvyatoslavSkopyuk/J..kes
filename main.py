@@ -10,10 +10,11 @@ parse()
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, f'Я бот-анекдотер, отправляю гэги на английском.'
-                          f'Введи команду /categories, чтобы увидеть список различных тем.'
+    bot.reply_to(message, f'Я бот-анекдотер, отправляю гэги на английском. '
+                          f'Введи команду /categories, чтобы увидеть список различных тем. '
                           f'Если отправить мне цифру, которая стоит у каждой темы,'
-                          f'я отправлю тебе рандомный анек с этой тематикой.{message.from_user.first_name}')
+                          f'я отправлю тебе рандомный анек с этой тематикой. Ломай меня, {message.from_user.first_name}. '
+                          f'Ломай меня полностью.')
 
 
 @bot.message_handler(commands=['categories'])

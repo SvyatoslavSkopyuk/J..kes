@@ -8,7 +8,8 @@ parse()
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, f'Я бот-telebot. А ты чмо, {message.from_user.first_name}')
+    bot.reply_to(message, f'Я бот-анекдотер, отправляю гэги на английском.'
+                          f'Введи команду /categories, чтобы увидеть список различных тем. Если отправить мне цифру, которая стоит у каждой темы, я отправлю тебе рандомный анек с этой тематикой.{message.from_user.first_name}')
 
 
 @bot.message_handler(commands=['categories'])
@@ -34,7 +35,7 @@ def get_text_messages(message):
             text = give_joke(joke)
 
     except ValueError:
-        text = 'Введи что-то нормальное, Макар, сука!'
+        text = f'Введи что-то нормальное, {message.from_user.first_name}!'
     bot.send_message(
         chat_id=message.from_user.id,
         text=text,

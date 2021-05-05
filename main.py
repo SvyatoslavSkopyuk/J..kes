@@ -13,7 +13,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['categories'])
 def send_categories(message):
-    with shelve.open('categories.db') as db:
+    with shelve.open('categories') as db:
         list_keys = list(db.keys())
         text = ''
         for i in range(len(list_keys)):
@@ -25,14 +25,16 @@ def send_categories(message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    num = int(str(message.text).strip())
-    with shelve.open('categories.db') as db:
-        list_keys = list(db.keys())
-        joke = choice(db[list_keys[num % len(list_keys)]])
-        text = give_joke(joke)
 
-    """except ValueError:
-        text = 'Введи что-то нормальное, Макар, сука!'"""
+    try:
+        num = int(str(message.text).strip())
+        with shelve.open('categories') as db:
+            list_keys = list(db.keys())
+            joke = choice(db[list_keys[num % len(list_keys)]])
+            text = give_joke(joke)
+
+    except ValueError:
+        text = 'Введи что-то нормальное, Макар, сука!'
     bot.send_message(
         chat_id=message.from_user.id,
         text=text,

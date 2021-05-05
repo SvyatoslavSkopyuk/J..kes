@@ -4,7 +4,7 @@ import re
 def create_formated_list(unformated_list, flag):
     for item in unformated_list:
         list_of_cats = [i for i in item.get_text().split('\n') if i != '']
-    tup = (1, len(list_of_cats)-2, 2) if flag else (0, len(list_of_cats)-1)
+    tup = (1, len(list_of_cats) - 2, 2) if flag else (0, len(list_of_cats) - 1)
 
     formated_list = []
     for category in range(*tup):
@@ -15,5 +15,3 @@ def create_formated_list(unformated_list, flag):
 
 def formatting(string):
     return re.sub(r'[?!.,]', '', string.lower()).replace(' ', '-')
-
-

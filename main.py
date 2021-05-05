@@ -3,13 +3,17 @@ import shelve
 
 from random import choice
 from parser import give_joke, parse
+
 bot = telebot.TeleBot('1738958667:AAGvgXWxuzHzRPQWb8lxkf33NOtmfU0cOqA')
 parse()
+
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     bot.reply_to(message, f'Я бот-анекдотер, отправляю гэги на английском.'
-                          f'Введи команду /categories, чтобы увидеть список различных тем. Если отправить мне цифру, которая стоит у каждой темы, я отправлю тебе рандомный анек с этой тематикой.{message.from_user.first_name}')
+                          f'Введи команду /categories, чтобы увидеть список различных тем.'
+                          f'Если отправить мне цифру, которая стоит у каждой темы,'
+                          f'я отправлю тебе рандомный анек с этой тематикой.{message.from_user.first_name}')
 
 
 @bot.message_handler(commands=['categories'])
@@ -24,9 +28,9 @@ def send_categories(message):
         text=text
     )
 
+
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-
     try:
         num = int(str(message.text).strip())
         with shelve.open('categories.db') as db:
@@ -41,7 +45,6 @@ def get_text_messages(message):
         text=text,
         parse_mode="markdown"
     )
-
 
 
 bot.polling()

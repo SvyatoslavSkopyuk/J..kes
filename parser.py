@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import functions
 import re
 
+
 def parse():
     url = "https://www.native-english.ru/jokes"
 
@@ -27,6 +28,7 @@ def parse():
             jokes = soup.find_all(['ul'], {"class": ["list list_big"]})
             joke_list = functions.create_formated_list(jokes, False)
             db[product] = joke_list
+
 
 def give_joke(joke):
     headers = {

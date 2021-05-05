@@ -31,8 +31,8 @@ def get_text_messages(message):
         joke = choice(db[list_keys[num % len(list_keys)]])
         text = give_joke(joke)
 
-    ''' except ValueError:
-        text = 'Введи что-то нормальное, Макар, сука!''''
+    """except ValueError:
+        text = 'Введи что-то нормальное, Макар, сука!'"""
     bot.send_message(
         chat_id=message.from_user.id,
         text=text,

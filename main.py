@@ -25,8 +25,7 @@ def send_categories(message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    print(message.text)
-    print(type(str(message.text)))
+    
     try:
         num = int(str(message.text).strip())
         with shelve.open('categories.db') as db:

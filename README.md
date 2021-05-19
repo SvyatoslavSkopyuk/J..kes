@@ -1,5 +1,5 @@
-<h1>Bot Finance</h1>
-<p><img src="https://c.radikal.ru/c30/2105/51/34568ebd23b6.png" alt="скрин"></p>
+<h1>Anekdoter Bot</h1>
+<p><img src="https://yt3.ggpht.com/a/AGF-l7-lgnNSPoXnNAz85aZLCcdBJT4qYB0OWCI6Vw=s900-c-k-c0xffffffff-no-rj-mo" alt="скрин"></p>
 <blockquote>
 <p>Anekdoter Bot - Телеграм-бот, который присылает вам анекдоты на английском языке по разным темамю</p>
 </blockquote>

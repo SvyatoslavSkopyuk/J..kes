@@ -4,13 +4,17 @@ from bs4 import BeautifulSoup
 import functions
 import re
 
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+
 
 def parse():
-    url = "https://www.native-english.ru/jokes"
-
+    """
+    Парсит названия анекдотов с сайта
+    """
+    global user_agent
     headers = {
         "accept": "*/*",
-        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+        "user-agent": user_agent
     }
 
     req = requests.get(f"https://www.native-english.ru/jokes", headers=headers)
@@ -31,12 +35,17 @@ def parse():
 
 
 def give_joke(joke):
+    """
+    Возвращает текст анекдота
+    :param joke: Название анекдота
+    """
+    global user_agent
     headers = {
         "accept": "*/*",
-        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+        "user-agent": user_agent
     }
-    URL = 'https://www.native-english.ru/jokes/' + joke.replace("'", '')
-    req = requests.get(URL, headers=headers)
+    url = 'https://www.native-english.ru/jokes/' + joke.replace("'", '')
+    req = requests.get(url, headers=headers)
     src = req.text
     soup = BeautifulSoup(src, "lxml")
     content = soup.find_all(['h1', 'div'], {"class": ["title", 'article']})

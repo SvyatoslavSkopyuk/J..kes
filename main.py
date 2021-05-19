@@ -10,6 +10,9 @@ parse()
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
+    """
+    :param message: сообщение, на которое надо ответить
+    """
     bot.reply_to(message, f'Я бот-анекдотер, отправляю гэги на английском. '
                           f'Введи команду /categories, чтобы увидеть список различных тем. '
                           f'Если отправить мне цифру, которая стоит у каждой темы,'
@@ -19,6 +22,9 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['categories'])
 def send_categories(message):
+    """
+    :param message: сообщение, на которое надо ответить
+    """
     with shelve.open('categories.db') as db:
         list_keys = list(db.keys())
         text = ''
@@ -32,6 +38,9 @@ def send_categories(message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
+    """
+    :param message: сообщение, на которое надо ответить
+    """
     try:
         num = int(str(message.text).strip())
         with shelve.open('categories.db') as db:

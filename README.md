@@ -11,7 +11,7 @@
 </blockquote>
 </details>
 <h3><strong>Второй этап: начало работы с ботом</strong></h3>
-<p><strong>1. Найдите в поиске или откройте по ссылке бота <a href="https://t.me/anekdoret_bot">anekdoter_bot</a></strong></p>
+<p><strong>1. Найдите в поиске или откройте по ссылке бота <a href="https://t.me/anekdoter_bot">anekdoter_bot</a></strong></p>
 <p><strong>2. В чате с ботом нажмите кнопку "Старт".</strong></p>
 <p><strong>3. Если вам нужна помощь, напишите команду "/help" .</strong></p>
 <h1 id="-"><strong>Интерфейс бота и доступные функции</strong></h1>
